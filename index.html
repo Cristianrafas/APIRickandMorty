@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Rick and Morty</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header id="header">
+        <a><img id="top-icon" src="/assets/top-icon-image.png"></a>
+        <h1 id="title">API de Rick and Morty</h1>
+        <div><input type="text" id="search" name="search" placeholder="Buscar">
+            <button type="submit" id="search-button" onclick=aqui()><img id="icon-search" src="/assets/lupa.png"></button>
+        </div>
+        </div>
+    </header>
+    <main id="main">
+        <div id="card-div"></div>
+
+        </div>
+        <div id="pagination-div"></div>
+        <img id="footer-image" src="./assets/footer-image.png"></img>
+    </main>
+
+    <footer id="footer">
+        <p id="char-count-p">PERSONAGENS: <span id="char-count" class="count"></span></p>
+        <p id="local-count-p">LOCALIZAÇÕES: <span id="local-count" class="count"></span></p>
+        <p id="ep-count-p">EPISÓDIOS: <span id="ep-count" class="count"></span></p>
+        <h2 class="footer-text">Desenvolvido por: <span>Cristian Rafael da Silva</span> em 2024</h2>
+    </footer>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/api.js"></script>
+    <script src="/script.js"></script>
+    
+</body>
+
+</html>

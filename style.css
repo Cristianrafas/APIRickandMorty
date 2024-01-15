@@ -1,0 +1,264 @@
+* {
+    background-color: rgb(255, 255, 255);
+    margin: 0; 
+}
+
+#header {
+    height: 250px;
+    position: relative
+}
+
+#top-icon {
+    height: 10%;
+    width: 2%;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    mix-blend-mode:hard-light;
+    background-size: cover;
+}
+
+#title {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    background: none;
+    font-size: 50px;
+}
+
+#search {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    width: 35%;
+    border-radius: 10px;
+    border: solid 1px;
+    padding-left: 6px
+}
+
+#search-button {
+    position:absolute;
+    top: 70%;
+    left: 67%;
+    transform:translate(-50%, -50%);
+    border: none;
+    width: 1%;
+    height: 5%;
+}
+
+#icon-search {
+    position: absolute;
+    right: 2%;
+    top: 3%;
+    width: 13px;
+    height: 13px;
+}
+
+#card-div {
+    /* background-color: black; */
+    position: absolute;
+    left: 15%;
+    top: 35%;
+    width: 70%;
+    height: 70%;
+}
+
+.card-image {
+    width: 25%;
+    height: 50%;
+    border-radius: 5px;
+}
+
+.card-title {
+    width: 75%;
+    position: absolute;
+    bottom:  90%;
+    left: 26%;
+    font-size: 20px;
+}
+
+.card-status-especie {
+    width: 200px;
+    height: 10px;
+    position: absolute;
+    top: 8%;
+    left: 26%;
+    font-size: 16px;
+}
+
+.card-description-1 {
+    width: 75%;
+    position: absolute;
+    top: 17%;
+    left: 26%;
+    font-size: 16px;
+    background: none;
+}
+
+.card-location {
+    width: 75%;
+    position: absolute;
+    top: 25%;
+    left: 26%;
+    font-size: 16px;
+}
+
+.card-description-2 {
+    width: 75%;
+    position: absolute;
+    top: 33%;
+    left: 26%;
+    font-size: 18px;
+}
+
+.card-last-ep {
+    width: 75%;
+    position: absolute;
+    top: 41%;
+    left: 26%;
+    font-size: 16px;
+}
+
+.border {
+    width: 100%;
+    margin-top: 10%;
+    border: 1px solid green
+}
+
+.card0 {
+    width: 50%;
+    height: 40%;
+    position: absolute;
+}
+.card1 {
+    width: 50%;
+    height: 40%;
+    position: absolute;
+    right: 0;
+}
+.card2 {
+    width: 50%;
+    height: 40%;
+    position: absolute;
+    top: 40%;
+}
+.card3 {
+    width: 50%;
+    height: 40%;
+    position: absolute;
+    top: 40%;
+    right: 0;
+}
+.card4 {
+    width: 50%;
+    height: 40%;
+    position: absolute;
+    top: 80%;
+
+}
+.card5 {
+    width: 50%;
+    height: 40%;
+    position: absolute;
+    top: 80%;
+    right: 0;
+}
+
+#pagination-div {
+    width: 80%;
+    height: 20%;
+    position: absolute;
+    top: 107%;
+    left: 10%;
+    text-align: center;
+}
+
+.prev {
+    position: absolute;
+    right: 52%;
+    bottom: 85%;
+}
+.next {
+    position:absolute;
+    left: 52%;
+    bottom: 85%;
+}
+
+#footer {
+    background-color: rgb(19, 42, 19);
+    position: absolute;
+    bottom: -500px;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+}
+
+#char-count-p {
+    position: absolute;
+    bottom: 60%;
+    left: 35%;
+    background: none;
+    color: white;
+}
+
+.count {
+    background: none;
+}
+.status {
+    border-radius: 50%;
+    border: 2px solid black;
+    font-size: 12px;
+}
+.dead {
+    background-color: red;
+    color: red;
+}
+
+.alive {
+    background-color: green;
+    color: green;
+}
+
+.unknown {
+    background-color: grey;
+    color: grey;
+}
+
+#local-count-p {
+    position: absolute;
+    bottom: 60%;
+    left: 48%;
+    background: none;
+    color: white;
+}
+#ep-count-p {
+    position: absolute;
+    bottom: 60%;
+    left: 60%;
+    background: none;
+    color: white;
+}
+
+.footer-text {
+    background: none;
+    position: absolute;
+    bottom: 0;
+    left: 33%;
+    color: white;
+    font-weight:100;
+}
+
+.footer-text span {
+    background: none;
+    font-weight:800;
+}
+
+#footer-image {
+    width: 30%;
+    height: 30%;
+    position:absolute;
+    bottom: -40%;
+    left: 35%;
+}
