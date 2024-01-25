@@ -3,9 +3,9 @@ const pagDiv = document.getElementById('pagination-div');
 const charCount = document.getElementById('char-count');
 const localCount = document.getElementById('local-count');
 const epCount = document.getElementById('ep-count');
-const urlCharacters = "https://rickandmortyapi.com/api/character";
-const urlLocations = "https://rickandmortyapi.com/api/location";
-const urlEpisodes = "https://rickandmortyapi.com/api/episode";
+const urlCharacters = 'https://rickandmortyapi.com/api/character';
+const urlLocations = 'https://rickandmortyapi.com/api/location';
+const urlEpisodes = 'https://rickandmortyapi.com/api/episode';
 let allLocations = [];
 let allChars = [];
 let charsLength = 0;
@@ -15,6 +15,16 @@ let pageChars = [];
 let groups = [];
 let groupNumber = currentPage - 1;
 let totalPages = 0;
+// const ghostCard = {
+//     image: '',
+//     name: 'ghost',
+//     status: '',
+//     species: '',
+//     location: {
+//         name: '',
+//     },
+//     episode: '',
+// }
 
 
 async function takePages(url) {
@@ -40,20 +50,24 @@ async function takeAllPages(pagesLength, url) {
     for (let i = 1; i <= pagesLength; i++) {
         await takeAllChars(i, url)
     }
-    console.log(allChars);
 }
 
 async function takeCharsLength() {
-
     charCount.innerHTML = `${allChars.length}`
 }
 
 
-async function makeGroups(array){
+async function makeGroups(array) {
+    groups = [];
     for (let i = 0; i < array.length; i += 6) {
         groups.push(array.slice(i, i + 6));
     }
-    console.log(groups);
+    // lastGroup = groups[groups.length - 1];
+    // if (lastGroup.length < 6) {
+    //     for (let j = lastGroup.length; j < 6; j++) {
+    //         lastGroup.push(ghostCard);
+    //     }
+    // }
     return groups;
 }
 
@@ -62,12 +76,11 @@ async function makePage(page, pagNum) {
     pagDiv.innerHTML = "";
 
     for (let i = 0; i < groups[page].length; i++) {
-        
-        const characterCard = document.createElement('div');
-        characterCard.classList.add(`card${i}`);
-        let lastEp = (groups[page][i].episode.length) - 1;
-
-        characterCard.innerHTML = `
+        // if (groups[page][i].name != 'ghost') {
+            const characterCard = document.createElement('div');
+            characterCard.classList.add(`card${i}`);
+            let lastEp = (groups[page][i].episode.length) - 1;
+            characterCard.innerHTML = `
         <img class="card-image" src="${groups[page][i].image}">
         <h2 class="card-title">${groups[page][i].name}</h2>
         <p class="card-status-especie"><span class="${groups[page][i].status === 'Dead' ? 'dead status' : groups[page][i].status === 'Alive' ? 'alive status' : "unknown status"}">O</span> ${groups[page][i].status} - ${groups[page][i].species}</p>
@@ -77,17 +90,36 @@ async function makePage(page, pagNum) {
         <p class="card-last-ep">${await takeLastEp(groups[page][i].episode[lastEp])}</p>
         <div class="border"></div>
         `
-        cardDiv.appendChild(characterCard)
+            cardDiv.appendChild(characterCard)
+        // } else {
+        //     const characterCard = document.createElement('div');
+        //     characterCard.classList.add(`card${i}`);
+        //     characterCard.innerHTML = `
+        // <img class="card-image" src="./assets/ghostChar.jpg">
+        // <div class="ghost-div"></div>
+        // <div class="ghost-div"></div>
+        // <div class="ghost-div"></div>
+        // <div class="ghost-div"></div>
+        // <div class="ghost-div"></div>
+        // <div class="ghost-div"></div>`
+        //     cardDiv.appendChild(characterCard);
+        // }
     }
     const paginationDiv = document.createElement('div');
     paginationDiv.classList.add('pagination');
-    
-    paginationDiv.innerHTML = `
-    <button class='prev' onclick="prevPage()">Prev</button>
-    <h2 class='current'>${pagNum}</h2>
-    <button class='next' onclick="nextPage()">Next</button>
-    `
-    pagDiv.appendChild(paginationDiv);
+
+    if (groups.length > 1) {
+        let prevButtonDisabled = currentPage === 1 ? 'disabled' : '';
+        let nextButtonDisabled = currentPage === groups.length ? 'disabled' : '';
+
+        paginationDiv.innerHTML = `
+        <button class='prev' onclick="prevPage()" ${prevButtonDisabled}>Prev</button>
+        <h2 class='current'>${pagNum}</h2>
+        <button class='next' onclick="nextPage()" ${nextButtonDisabled}>Next</button>
+    `;
+
+        pagDiv.appendChild(paginationDiv);
+    }
 }
 async function takeLastEp(url) {
     try {
@@ -100,16 +132,16 @@ async function takeLastEp(url) {
 }
 function nextPage() {
     if (currentPage > totalPages) {
-    currentPage += 1;
-    makePage(currentPage - 1, currentPage);
-    console.log(currentPage);}
+        currentPage += 1;
+        makePage(currentPage - 1, currentPage);
+    }
     else {
         return
     }
 }
 
 function prevPage() {
-    if (currentPage > 1){
+    if (currentPage > 1) {
         currentPage -= 1;
         makePage(currentPage - 1, currentPage)
     }
@@ -121,7 +153,7 @@ function prevPage() {
 async function takeAllLocations(url) {
     try {
         let locations = await api.get(`${url}`);
-        console.log(locations)
+        // console.log(locations);
         let locationsLength = locations.data.info.count;
         localCount.innerHTML = `${locationsLength}`
         return locations;
@@ -133,10 +165,30 @@ async function takeAllEpisodes(url) {
     try {
         let episodes = await api.get(`${url}`);
         episodesLength = episodes.data.info.count;
-        epCount.innerHTML = `${episodesLength}`
+        epCount.innerHTML = `${episodesLength}`;
         return episodes;
     } catch (error) {
         console.log('Erro ao carregar dados.', error);
+    }
+}
+
+document.getElementById('search').addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        let searchWord = document.getElementById('search').value.toLowerCase();
+        search(searchWord);
+    }
+});
+
+async function search() {
+    try {
+        const word = document.getElementById('search').value.toLowerCase();
+        const searchChars = allChars.filter(character => character.name.toLowerCase().includes(word));
+        console.log(searchChars);
+        await makeGroups(searchChars);
+        currentPage = 1;
+        await makePage(groupNumber, currentPage);
+    } catch (error) {
+        console.log('Erro ao fazer pesquisa', error);
     }
 }
 

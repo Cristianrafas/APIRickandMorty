@@ -57,7 +57,6 @@
 }
 
 #card-div {
-    /* background-color: black; */
     position: absolute;
     left: 15%;
     top: 35%;
@@ -165,6 +164,12 @@
     top: 80%;
     right: 0;
 }
+
+/* .ghost-div {
+    width: 25%;
+    height: 1%;
+    background-color: rgba(158, 151, 151, 0.429);
+} */
 
 #pagination-div {
     width: 80%;
