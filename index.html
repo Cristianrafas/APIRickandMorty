@@ -5,39 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Rick and Morty</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="./style.css" rel="stylesheet">
 </head>
 
 <body>
-    <header id="header">
-        <a><img id="top-icon" src="./assets/top-icon-image.png"></a>
-        <h1 id="title">API de Rick and Morty</h1>
-        <div><input type="text" id="search" name="search" placeholder="Buscar">
-            <button type="submit" id="search-button" onclick="search()">
-                <img id="icon-search" src="./assets/lupa.png">
-            </button>
-        </div>
-        </div>
-    </header>
-    <main id="main">
-        <div id="card-div"></div>
+    <style>
+        #top-icon {
+            height: 4%;
+            width: 2%;
+            position: absolute;
+            left: 4px;
+            top: 4px;
+            mix-blend-mode: hard-light;
+            background-size: cover;
+        }
+    </style>
+    <div class="container" id="main-container">
 
+        <a href="index.html">
+            <img id="top-icon" class="d-none d-sm-block" src="./assets/top-icon-image.png" alt="Ícone">
+        </a>
+
+        <!-- 2: Título centralizado horizontalmente -->
+        <h1 id='title' class="text-center">API de Rick and Morty</h1>
+
+        <!-- 3: Input de busca centralizado horizontalmente -->
+        <!-- <div class="d-flex justify-content-center" id="search">
+            <input type="text" class="form-control w-75 w-md-50 w-lg-25 mt-3" id="search-value" placeholder="Search">
+        </div> -->
+        <div class="input-group mt-3" id="search">
+            <input type="text" class="form-control w-75 w-md-50 w-lg-25" placeholder="Search" id="search-value">
+            <button class="btn btn-outline-secondary" type="button">Search</button>
         </div>
-        <div id="pagination-div"></div>
-        <img id="footer-image" src="./assets/footer-image.png"></img>
-    </main>
+
+        <!-- 4: Container ocupando 70% de altura e 60% de largura, centralizado horizontalmente -->
+        <div class="container bg-light" id="content-container">
+            <div class="row" id="card-row">
+
+            </div>
+        </div>
+
+        <!-- 5: Container para paginação, centralizado horizontalmente e pequeno -->
+        <div id="pagination-div">
+        </div>
+
+        <!-- 6: Imagem antes do footer -->
+        <img id="footer-image" src="./assets/footer-image.png" class="mx-auto d-block mt-3" alt="Imagem antes do footer">
+    </div>
 
     <footer id="footer">
         <p id="char-count-p">PERSONAGENS: <span id="char-count" class="count"></span></p>
         <p id="local-count-p">LOCALIZAÇÕES: <span id="local-count" class="count"></span></p>
         <p id="ep-count-p">EPISÓDIOS: <span id="ep-count" class="count"></span></p>
-        <h2 class="footer-text">Desenvolvido por: <span>Cristian Rafael da Silva</span> em 2024</h2>
+        <h3 id='footer-text' class="footer-text">Desenvolvido por: <span>Cristian Rafael da Silva</span> em 2024</h3>
     </footer>
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./api.js"></script>
     <script src="./script.js"></script>
-    
+
 </body>
 
 </html>

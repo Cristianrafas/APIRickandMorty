@@ -1,4 +1,4 @@
-const cardDiv = document.getElementById('card-div');
+const cardRow = document.getElementById('card-row');
 const pagDiv = document.getElementById('pagination-div');
 const charCount = document.getElementById('char-count');
 const localCount = document.getElementById('local-count');
@@ -72,52 +72,50 @@ async function makeGroups(array) {
 }
 
 async function makePage(page, pagNum) {
-    cardDiv.innerHTML = "";
+    cardRow.innerHTML = "";
     pagDiv.innerHTML = "";
 
     for (let i = 0; i < groups[page].length; i++) {
-        // if (groups[page][i].name != 'ghost') {
-            const characterCard = document.createElement('div');
-            characterCard.classList.add(`card${i}`);
-            let lastEp = (groups[page][i].episode.length) - 1;
-            characterCard.innerHTML = `
-        <img class="card-image" src="${groups[page][i].image}">
-        <h2 class="card-title">${groups[page][i].name}</h2>
-        <p class="card-status-especie"><span class="${groups[page][i].status === 'Dead' ? 'dead status' : groups[page][i].status === 'Alive' ? 'alive status' : "unknown status"}">O</span> ${groups[page][i].status} - ${groups[page][i].species}</p>
-        <p class="card-description-1">Última localização conhecida</p>
-        <strong class="card-location">${groups[page][i].location.name}</strong>
-        <p class="card-description-2">Visto última vez em</p>
-        <p class="card-last-ep">${await takeLastEp(groups[page][i].episode[lastEp])}</p>
-        <div class="border"></div>
-        `
-            cardDiv.appendChild(characterCard)
-        // } else {
-        //     const characterCard = document.createElement('div');
-        //     characterCard.classList.add(`card${i}`);
-        //     characterCard.innerHTML = `
-        // <img class="card-image" src="./assets/ghostChar.jpg">
-        // <div class="ghost-div"></div>
-        // <div class="ghost-div"></div>
-        // <div class="ghost-div"></div>
-        // <div class="ghost-div"></div>
-        // <div class="ghost-div"></div>
-        // <div class="ghost-div"></div>`
-        //     cardDiv.appendChild(characterCard);
-        // }
+        const characterCard = document.createElement('div');
+        characterCard.classList.add('col-6', 'card-div');
+        let lastEp = (groups[page][i].episode.length) - 1;
+        characterCard.innerHTML = `
+            <div class="row">
+                <div class="col-4">
+                    <img class="card-image" src="${groups[page][i].image}">
+                </div>
+                <div class="col-8">
+                    <h2 class="card-title">${groups[page][i].name}</h2>
+                    <p class="card-description"><span class="${groups[page][i].status === 'Dead' ? 'dead status' : groups[page][i].status === 'Alive' ? 'alive status' : 'unknown status'}">O</span> ${groups[page][i].status} - ${groups[page][i].species}</p>
+                    <p class="card-description">Última localização conhecida</p>
+                    <p class="card-description">${groups[page][i].location.name}</p>
+                    <p class="card-description">Visto última vez em</p>
+                    <p class="card-description">${await takeLastEp(groups[page][i].episode[lastEp])}</p>
+                </div>
+            </div>
+        `;
+        cardRow.appendChild(characterCard)
     }
     const paginationDiv = document.createElement('div');
     paginationDiv.classList.add('pagination');
 
     if (groups.length > 1) {
-        let prevButtonDisabled = currentPage === 1 ? 'disabled' : '';
-        let nextButtonDisabled = currentPage === groups.length ? 'disabled' : '';
+        let prevButtonDisabled = currentPage === 1 ? 'hidden' : '';
+        let prevButtonDisabledTen = currentPage < 11 ? 'hidden' : '';
+        let nextButtonDisabled = currentPage === groups.length ? 'hidden' : '';
+        let nextButtonDisabledTen = currentPage + 10 > groups.length ? 'hidden' : '';
 
         paginationDiv.innerHTML = `
-        <button class='prev' onclick="prevPage()" ${prevButtonDisabled}>Prev</button>
-        <h2 class='current'>${pagNum}</h2>
-        <button class='next' onclick="nextPage()" ${nextButtonDisabled}>Next</button>
-    `;
-
+    <nav id='pagination-nav' class="d-flex justify-content-center mt-3">
+        <ul class="pagination">
+            <li class="page-item"><button class="btn btn-secondary opacity-50" onclick="prevPage(10)" ${prevButtonDisabledTen}><10</button></li>
+            <li class="page-item"><button class="btn btn-secondary opacity-50" onclick="prevPage(1)" ${prevButtonDisabled}>${(pagNum - 1)}</button></li>
+            <li class="page-item"><button class="btn btn-success" disabled>${(pagNum)}</button></li>
+            <li class="page-item"><button class="btn btn-secondary opacity-50" onclick="nextPage(1)" ${nextButtonDisabled}>${(pagNum + 1)}</button></li>
+            <li class="page-item"><button class="btn btn-secondary opacity-50" onclick="nextPage(10)" ${nextButtonDisabledTen}>10></button></li>
+        </ul>
+    </nav>
+`;
         pagDiv.appendChild(paginationDiv);
     }
 }
@@ -130,9 +128,9 @@ async function takeLastEp(url) {
         console.log('Erro ao carregar dados.', error);
     }
 }
-function nextPage() {
+function nextPage(num) {
     if (currentPage > totalPages) {
-        currentPage += 1;
+        currentPage += num;
         makePage(currentPage - 1, currentPage);
     }
     else {
@@ -140,9 +138,9 @@ function nextPage() {
     }
 }
 
-function prevPage() {
+function prevPage(num) {
     if (currentPage > 1) {
-        currentPage -= 1;
+        currentPage -= num;
         makePage(currentPage - 1, currentPage)
     }
     else {
@@ -153,7 +151,6 @@ function prevPage() {
 async function takeAllLocations(url) {
     try {
         let locations = await api.get(`${url}`);
-        // console.log(locations);
         let locationsLength = locations.data.info.count;
         localCount.innerHTML = `${locationsLength}`
         return locations;
@@ -174,14 +171,13 @@ async function takeAllEpisodes(url) {
 
 document.getElementById('search').addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
-        let searchWord = document.getElementById('search').value.toLowerCase();
+        let searchWord = document.getElementById('search-value').value.toLowerCase();
         search(searchWord);
     }
 });
 
-async function search() {
+async function search(word) {
     try {
-        const word = document.getElementById('search').value.toLowerCase();
         const searchChars = allChars.filter(character => character.name.toLowerCase().includes(word));
         console.log(searchChars);
         await makeGroups(searchChars);

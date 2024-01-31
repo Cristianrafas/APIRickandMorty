@@ -3,42 +3,40 @@
     margin: 0; 
 }
 
-#header {
-    height: 250px;
-    position: relative
-}
-
-#top-icon {
-    height: 10%;
-    width: 2%;
-    position: absolute;
-    left: 4px;
-    top: 4px;
-    mix-blend-mode:hard-light;
-    background-size: cover;
+#main-container {
+    width: 90%;
 }
 
 #title {
     position: absolute;
-    top: 55%;
+    top: 8%;
     left: 50%;
     transform:translate(-50%, -50%);
     background: none;
-    font-size: 50px;
+    font-size: 3vw;
+    white-space: nowrap;
 }
 
 #search {
     position: absolute;
-    top: 70%;
+    top: 14%;
     left: 50%;
     transform:translate(-50%, -50%);
     width: 35%;
-    border-radius: 10px;
-    border: solid 1px;
-    padding-left: 6px
+    background: none;
 }
 
-#search-button {
+.input-group:hover, .input-group:focus-within {
+    /* border-color: rgb(53, 117, 53); */
+    box-shadow: 0 0 0 0.2rem rgb(53, 117, 53) !important;
+    border-radius: 5px;
+}
+
+.form-control {
+    box-shadow: none !important;
+}
+
+/* #search-button {
     position:absolute;
     top: 70%;
     left: 67%;
@@ -46,155 +44,66 @@
     border: none;
     width: 1%;
     height: 5%;
-}
+} */
 
-#icon-search {
+/* #icon-search {
     position: absolute;
     right: 2%;
     top: 3%;
     width: 13px;
     height: 13px;
+} */
+
+#content-container {
+    height: 80vh; 
+    width: 70vw; 
+    position: absolute;
+    top: 65vh;
+    left: 50%;
+    transform:translate(-50%, -50%);
+
 }
 
-#card-div {
-    position: absolute;
-    left: 15%;
-    top: 35%;
-    width: 70%;
-    height: 70%;
+.card-div {
+    margin-bottom: 12vh;
 }
 
 .card-image {
-    width: 25%;
-    height: 50%;
+    width: 13vw;
+    height: 19vh;
     border-radius: 5px;
+    object-fit: contain;
 }
 
 .card-title {
-    width: 75%;
-    position: absolute;
-    bottom:  90%;
-    left: 26%;
-    font-size: 20px;
+    font-size: 1.4vw;
 }
 
-.card-status-especie {
-    width: 200px;
-    height: 10px;
-    position: absolute;
-    top: 8%;
-    left: 26%;
-    font-size: 16px;
+.card-description {
+    font-size: 1vw;
+    margin-bottom: 0;
 }
 
-.card-description-1 {
-    width: 75%;
-    position: absolute;
-    top: 17%;
-    left: 26%;
-    font-size: 16px;
+#pagination-nav {
+    width: 15vw;
+    height: 5vh;
     background: none;
-}
-
-.card-location {
-    width: 75%;
     position: absolute;
-    top: 25%;
-    left: 26%;
-    font-size: 16px;
-}
-
-.card-description-2 {
-    width: 75%;
-    position: absolute;
-    top: 33%;
-    left: 26%;
-    font-size: 18px;
-}
-
-.card-last-ep {
-    width: 75%;
-    position: absolute;
-    top: 41%;
-    left: 26%;
-    font-size: 16px;
-}
-
-.border {
-    width: 100%;
-    margin-top: 10%;
-    border: 1px solid green
-}
-
-.card0 {
-    width: 50%;
-    height: 40%;
-    position: absolute;
-}
-.card1 {
-    width: 50%;
-    height: 40%;
-    position: absolute;
-    right: 0;
-}
-.card2 {
-    width: 50%;
-    height: 40%;
-    position: absolute;
-    top: 40%;
-}
-.card3 {
-    width: 50%;
-    height: 40%;
-    position: absolute;
-    top: 40%;
-    right: 0;
-}
-.card4 {
-    width: 50%;
-    height: 40%;
-    position: absolute;
-    top: 80%;
-
-}
-.card5 {
-    width: 50%;
-    height: 40%;
-    position: absolute;
-    top: 80%;
-    right: 0;
-}
-
-/* .ghost-div {
-    width: 25%;
-    height: 1%;
-    background-color: rgba(158, 151, 151, 0.429);
-} */
-
-#pagination-div {
-    width: 80%;
-    height: 20%;
-    position: absolute;
-    top: 107%;
-    left: 10%;
+    top: 110vh;
+    left: 50%;
+    transform:translate(-50%, -50%);
     text-align: center;
 }
 
-.prev {
-    position: absolute;
-    right: 52%;
-    bottom: 85%;
-}
-.next {
-    position:absolute;
-    left: 52%;
-    bottom: 85%;
+.current-page {
+    background-color: rgb(53, 117, 53);
+    color: white;
 }
 
 #footer {
     background-color: rgb(19, 42, 19);
     position: absolute;
-    bottom: -500px;
+    bottom: -70vh;
     width: 100%;
     height: 200px;
     text-align: center;
@@ -250,20 +159,20 @@
     background: none;
     position: absolute;
     bottom: 0;
-    left: 33%;
+    left: 30%;
     color: white;
-    font-weight:100;
 }
 
 .footer-text span {
     background: none;
-    font-weight:800;
+    font-weight:600;
 }
 
 #footer-image {
     width: 30%;
-    height: 30%;
+    height: 30vh;
     position:absolute;
-    bottom: -40%;
+    bottom: -44%;
     left: 35%;
+    background: none;
 }
