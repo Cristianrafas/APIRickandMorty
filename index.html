@@ -11,29 +11,26 @@
 </head>
 
 <body>
-    <style>
-        #top-icon {
-            height: 4%;
-            width: 2%;
-            position: absolute;
-            left: 4px;
-            top: 4px;
-            mix-blend-mode: hard-light;
-            background-size: cover;
-        }
-    </style>
     <div class="container-fluid m-0" id="main-container">
-
-        <a href="index.html">
-            <img id="top-icon" class="d-none d-sm-block" src="./assets/top-icon-image.png" alt="Ícone">
-        </a>
-
-        <h1 id='title' class="text-center">API de Rick and Morty</h1>
-
-
-        <div class="input-group mt-3" id="search">
+        <div class="row-12">
+            <div class="col-1 w-100 ">
+                <a href="index.html">
+                    <img id="top-icon" class="d-none d-sm-block" src="./assets/top-icon-image.png" alt="Ícone">
+                </a>
+            </div>
+        </div>
+        <div class="row mt-5 justify-content-center ">
+            <div class="col-6">
+                <h1 id='title' class="text-center">API de Rick and Morty</h1>
+            </div>
+        </div>
+<div class="row justify-content-center mt-3 mb-5">
+    <div class="col-6">
+        <div class="input-group d-flex " id="search">
             <input type="text" class="form-control w-75 w-md-50 w-lg-25" placeholder="Search" id="search-value">
             <button class="btn btn-outline-secondary" type="button">Search</button>
+    </div>
+</div>
         </div>
 
 

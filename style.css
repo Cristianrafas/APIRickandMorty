@@ -6,6 +6,13 @@
 #top-icon{
     border-radius: 25px;
     background-color: rgb(49, 214, 63);
+    height: 4%;
+    width: 2%;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    mix-blend-mode: hard-light;
+    background-size: cover;
 }
 
 #main-container {
@@ -20,7 +27,6 @@
 }
 
 #search {
-    width: 35%;
     background: none;
 }
 
