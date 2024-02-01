@@ -15,16 +15,6 @@ let pageChars = [];
 let groups = [];
 let groupNumber = currentPage - 1;
 let totalPages = 0;
-// const ghostCard = {
-//     image: '',
-//     name: 'ghost',
-//     status: '',
-//     species: '',
-//     location: {
-//         name: '',
-//     },
-//     episode: '',
-// }
 
 
 async function takePages(url) {
@@ -62,12 +52,6 @@ async function makeGroups(array) {
     for (let i = 0; i < array.length; i += 6) {
         groups.push(array.slice(i, i + 6));
     }
-    // lastGroup = groups[groups.length - 1];
-    // if (lastGroup.length < 6) {
-    //     for (let j = lastGroup.length; j < 6; j++) {
-    //         lastGroup.push(ghostCard);
-    //     }
-    // }
     return groups;
 }
 
@@ -77,14 +61,14 @@ async function makePage(page, pagNum) {
 
     for (let i = 0; i < groups[page].length; i++) {
         const characterCard = document.createElement('div');
-        characterCard.classList.add('col-6', 'card-div');
+        characterCard.classList.add('col-5', 'card-div', 'mb-3');
         let lastEp = (groups[page][i].episode.length) - 1;
         characterCard.innerHTML = `
-            <div class="row">
-                <div class="col-4">
+            <div class="row row1">
+                <div class="col-5">
                     <img class="card-image" src="${groups[page][i].image}">
                 </div>
-                <div class="col-8">
+                <div class="col-7">
                     <h2 class="card-title">${groups[page][i].name}</h2>
                     <p class="card-description"><span class="${groups[page][i].status === 'Dead' ? 'dead status' : groups[page][i].status === 'Alive' ? 'alive status' : 'unknown status'}">O</span> ${groups[page][i].status} - ${groups[page][i].species}</p>
                     <p class="card-description">Última localização conhecida</p>
