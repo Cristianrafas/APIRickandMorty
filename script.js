@@ -56,20 +56,24 @@ async function makeGroups(array) {
 }
 
 async function makePage(page, pagNum) {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    }),
     cardRow.innerHTML = "";
     pagDiv.innerHTML = "";
 
     for (let i = 0; i < groups[page].length; i++) {
         const characterCard = document.createElement('div');
-        characterCard.classList.add('col-5', 'card-div', 'mb-3');
+        characterCard.classList.add('col-11', 'col-md-5', 'card-div', 'mb-3');
         let lastEp = (groups[page][i].episode.length) - 1;
         characterCard.innerHTML = `
             <div class="row row1">
-                <div class="col-5">
+                <div class="col-4 p-0 ">
                     <img class="card-image" src="${groups[page][i].image}">
                 </div>
-                <div class="col-7">
-                    <h2 class="card-title">${groups[page][i].name}</h2>
+                <div class="col-8 p-0 pb-2 ps-2 ps-md-2">
+                    <div class="card-title">${groups[page][i].name}</div>
                     <p class="card-description"><span class="${groups[page][i].status === 'Dead' ? 'dead status' : groups[page][i].status === 'Alive' ? 'alive status' : 'unknown status'}">O</span> ${groups[page][i].status} - ${groups[page][i].species}</p>
                     <p class="card-description">Última localização conhecida</p>
                     <p class="card-description">${groups[page][i].location.name}</p>
@@ -125,7 +129,7 @@ function nextPage(num) {
 function prevPage(num) {
     if (currentPage > 1) {
         currentPage -= num;
-        makePage(currentPage - 1, currentPage)
+        makePage(currentPage - 1, currentPage);
     }
     else {
         return;

@@ -12,7 +12,7 @@
 
 <body>
     <div class="container-fluid m-0" id="main-container">
-        <div class="row-12">
+        <div class="row-12 mt-2">
             <div class="col-1 w-100 ">
                 <a href="index.html">
                     <img id="top-icon" class="d-none d-sm-block" src="./assets/top-icon-image.png" alt="Ícone">
@@ -20,38 +20,53 @@
             </div>
         </div>
         <div class="row mt-5 justify-content-center ">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <h1 id='title' class="text-center">API de Rick and Morty</h1>
             </div>
         </div>
-<div class="row justify-content-center mt-3 mb-5">
-    <div class="col-6">
-        <div class="input-group d-flex " id="search">
-            <input type="text" class="form-control w-75 w-md-50 w-lg-25" placeholder="Search" id="search-value">
-            <button class="btn btn-outline-secondary" type="button">Search</button>
-    </div>
-</div>
-        </div>
-
-
-        <div class="container-fluid" id="content-container">
-            <div class="row d-flex justify-content-evenly" id="card-row">
-
+        <div class="row justify-content-center mt-3 mb-5 me-3 ms-3 ">
+            <div class="col-12 col-md-6">
+                <div class="input-group d-flex " id="search">
+                    <input type="text" class="form-control w-85 w-md-75" placeholder="Search" id="search-value">
+                    <button class="btn btn-outline-secondary w-15 w-md-25" type="button">Search</button>
+                </div>
             </div>
         </div>
-
-
+        <div class="container-fluid" id="content-container">
+            <div class="row d-flex justify-content-evenly" id="card-row">
+            </div>
+        </div>
     </div>
     <div id="pagination-div">
     </div>
-    <img id="footer-image" src="./assets/footer-image.png" class="mx-auto d-block mt-3" alt="Imagem antes do footer">
-
-    <footer id="footer">
-        <p id="char-count-p">PERSONAGENS: <span id="char-count" class="count"></span></p>
-        <p id="local-count-p">LOCALIZAÇÕES: <span id="local-count" class="count"></span></p>
-        <p id="ep-count-p">EPISÓDIOS: <span id="ep-count" class="count"></span></p>
-        <h3 id='footer-text' class="footer-text">Desenvolvido por: <span>Cristian Rafael da Silva</span> em 2024</h3>
-    </footer>
+    <div class="row">
+        <div class="col-12">
+            <img id="footer-image" src="./assets/footer-image.png" class="mx-auto d-block mt-3"
+                alt="Imagem antes do footer">
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center align-items-center footer footer-bg">
+        <div class="col text-center justify-content-between footer-bg footer-col">
+            <div class="row justify-content-center mb-5 mt-3 footer-bg align-items">
+                <div class="col-3 col-md-2 footer-bg">
+                    <p class="footer-bg font-footer">PERSONAGENS: <span class="footer-bg" id="char-count"></span></p>
+                </div>
+                <div class="col-3 col-md-2 footer-bg">
+                    <p class="footer-bg font-footer">LOCALIZAÇÕES: <span class="footer-bg" id="local-count"></span></p>
+                </div>
+                <div class="col-3 col-md-2 footer-bg">
+                    <p class="footer-bg font-footer">EPISÓDIOS: <span class="footer-bg" id="ep-count"></span></p>
+                </div>
+            </div>
+            <div class="row footer-bg pt-5 ">
+                <div class="col footer-bg">
+                    <h3 id='footer-text' class="footer-text">Desenvolvido por: <span>Cristian Rafael da Silva</span> em
+                        2024</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

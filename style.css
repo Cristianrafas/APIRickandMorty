@@ -1,6 +1,9 @@
 * {
-    background-color: rgb(19, 18, 18);
     margin: 0; 
+}
+
+body {
+    background-color: rgb(19, 18, 18);
 }
 
 #top-icon{
@@ -8,9 +11,6 @@
     background-color: rgb(49, 214, 63);
     height: 4%;
     width: 2%;
-    position: absolute;
-    left: 4px;
-    top: 4px;
     mix-blend-mode: hard-light;
     background-size: cover;
 }
@@ -21,7 +21,7 @@
 
 #title {
     background: none;
-    font-size: 3vw;
+    font-size: 5vw;
     white-space: nowrap;
     color: white;
 }
@@ -29,6 +29,7 @@
 #search {
     background: none;
 }
+
 
 .input-group:hover, .input-group:focus-within {
     box-shadow: 0 0 0 0.2rem rgb(53, 117, 53) !important;
@@ -39,77 +40,125 @@
     box-shadow: none !important;
 }
 
-#content-container {
-    height: 80vh; 
-    width: 70vw; 
-    color: white;
-    background-color: rgb(19, 18, 18);
+.card-div {
+    background-color: grey;
+    padding: 1vw !important;    
+    border: 3px solid rgb(104, 241, 25);
+    border-radius: 20px;
+    transition: 0.3s ease;
 }
 
-.card-div {
-    padding: 1vw !important;    
-    border: 1px solid white;
+.card-div:hover {
+    box-shadow: 0 0 20px rgba(238, 232, 232, 0.816);
+    transform: scale(1.1);
 }
+
 
 .card-image {
-    width: 10vw;
-    height: 19vh;
-    border-radius: 5px;
+    margin-top: 0.5vh;
+    max-width: 30vw;
+    height: 14vh;
+    border-radius: 15%, 1%, 1%, 1%;
     object-fit: contain;
-
 }
 
-.card-title {
-    font-size: 1.4vw;
+
+@media (min-width: 768px) {
+    .card-image {
+        width: 10vw;
+        height: 19vh;
+        border-radius: 5px;
+        object-fit: contain;
+    }
+    #content-container {
+        height: 85vh; 
+        width: 70vw; 
+        color: white;
+        background-color: rgb(19, 18, 18);
+    }
+    .card-description {
+        font-size: 1vw;
+        margin-bottom: 0;
+    }
+    .card-title {
+        font-size: 3vh;
+        margin-bottom: 0;
+        max-height: 5vh;
+        overflow: hidden;
+    }
+
+    #footer-image {
+        width: 30%;
+        height: 30vh;
+        background: none;
+    }
+
+    .footer-text {
+        background: none;
+        color: rgba(90, 99, 90, 0.705);
+    }
+    
+    .status {
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        border: 2px solid rgb(74, 72, 72);
+        font-size: 12px;
+    }
 }
 
-.card-description {
-    font-size: 1vw;
-    margin-bottom: 0;
+@media (max-width: 767px) {
+    .row1 {
+        height: 15vh;
+        margin-left: 0vw;
+        width: 81vw;
+    }
+    
+    .card-description {
+        font-size: 3vw;
+        margin-bottom: 0;
+    }
+
+    .card-title {
+        font-size: 2.5vh;
+        margin-bottom: 0;
+        max-height: 3vh;
+        overflow: hidden;
+    }
+
+    #content-container {
+        height: 110vh; 
+        width: 90vw; 
+        color: white;
+        background-color: rgb(19, 18, 18);
+    }
+
+    #footer-image {
+        width: 50%;
+        height: 30vh;
+        background: none;
+    }
+
+    .font-footer {
+        font-size: 1.5vh;
+    }
+
+    .footer-text {
+        background: none;
+        font-size: 2vh;
+        color: rgba(193, 207, 193, 0.705);
+    }
+    .status {
+        width: 14px;
+        height: 14px;
+        border-radius: 100%;
+        border: 1px solid rgb(74, 72, 72);
+        font-size: 12px;
+    }
 }
 
-#pagination-nav {
-    width: 100%;
-    height: 5vh;
-    background: none;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    text-align: center;
-}
 
-.current-page {
-    background-color: rgb(53, 117, 53);
-    color: white;
-}
 
-#footer {
-    background-color: rgb(19, 42, 19);
-    position: absolute;
-    bottom: -70vh;
-    width: 100%;
-    height: 200px;
-    text-align: center;
-}
-
-#char-count-p {
-    position: absolute;
-    bottom: 60%;
-    left: 35%;
-    background: none;
-    color: white;
-}
-
-.count {
-    background: none;
-}
-.status {
-    width: 15px;
-    height: 15px;
-    border-radius: 100%;
-    border: 2px solid black;
-    font-size: 12px;
-}
 .dead {
     background-color: red;
     color: red;
@@ -125,39 +174,37 @@
     color: grey;
 }
 
-#local-count-p {
-    position: absolute;
-    bottom: 60%;
-    left: 48%;
+#pagination-nav {
+    width: 100%;
+    height: 5vh;
     background: none;
-    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
-#ep-count-p {
-    position: absolute;
-    bottom: 60%;
-    left: 60%;
-    background: none;
+
+.current-page {
+    background-color: rgb(53, 117, 53);
     color: white;
 }
 
-.footer-text {
-    background: none;
-    position: absolute;
-    bottom: 0;
-    left: 30%;
+.footer {
+    background-color: rgb(19, 42, 19);
+    width: 100%;
+    height: 150px;
+}
+
+.footer-bg {
+    background-color: rgb(19, 42, 19) !important;
     color: white;
+}
+
+.footer-col {
+    height: 100%;
 }
 
 .footer-text span {
     background: none;
     font-weight:600;
-}
-
-#footer-image {
-    width: 30%;
-    height: 30vh;
-    position:absolute;
-    bottom: -42%;
-    left: 35%;
-    background: none;
+    color:white
 }
