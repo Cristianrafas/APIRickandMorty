@@ -1,12 +1,12 @@
 * {
-    margin: 0; 
+    margin: 0;
 }
 
 body {
     background-color: rgb(19, 18, 18);
 }
 
-#top-icon{
+#top-icon {
     border-radius: 25px;
     background-color: rgb(49, 214, 63);
     height: 4%;
@@ -31,7 +31,8 @@ body {
 }
 
 
-.input-group:hover, .input-group:focus-within {
+.input-group:hover,
+.input-group:focus-within {
     box-shadow: 0 0 0 0.2rem rgb(53, 117, 53) !important;
     border-radius: 5px;
 }
@@ -42,7 +43,7 @@ body {
 
 .card-div {
     background-color: grey;
-    padding: 1vw !important;    
+    padding: 1vw !important;
     border: 3px solid rgb(104, 241, 25);
     border-radius: 20px;
     transition: 0.3s ease;
@@ -52,6 +53,28 @@ body {
     box-shadow: 0 0 20px rgba(238, 232, 232, 0.816);
     transform: scale(1.1);
 }
+
+.loading-indicator {
+    border: 8px solid #f3f3f3;
+    /* Cinza claro */
+    border-top: 8px solid #3498db;
+    /* Azul */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 
 
 .card-image {
@@ -70,16 +93,19 @@ body {
         border-radius: 5px;
         object-fit: contain;
     }
+
     #content-container {
-        height: 85vh; 
-        width: 70vw; 
+        height: 85vh;
+        width: 70vw;
         color: white;
         background-color: rgb(19, 18, 18);
     }
+
     .card-description {
         font-size: 1vw;
         margin-bottom: 0;
     }
+
     .card-title {
         font-size: 3vh;
         margin-bottom: 0;
@@ -97,7 +123,7 @@ body {
         background: none;
         color: rgba(90, 99, 90, 0.705);
     }
-    
+
     .status {
         width: 15px;
         height: 15px;
@@ -113,7 +139,7 @@ body {
         margin-left: 0vw;
         width: 81vw;
     }
-    
+
     .card-description {
         font-size: 3vw;
         margin-bottom: 0;
@@ -127,8 +153,8 @@ body {
     }
 
     #content-container {
-        height: 110vh; 
-        width: 90vw; 
+        height: 110vh;
+        width: 90vw;
         color: white;
         background-color: rgb(19, 18, 18);
     }
@@ -148,6 +174,7 @@ body {
         font-size: 2vh;
         color: rgba(193, 207, 193, 0.705);
     }
+
     .status {
         width: 14px;
         height: 14px;
@@ -205,6 +232,6 @@ body {
 
 .footer-text span {
     background: none;
-    font-weight:600;
-    color:white
+    font-weight: 600;
+    color: white
 }
