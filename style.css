@@ -55,12 +55,13 @@ body {
 }
 
 .loading-indicator {
-    border: 8px solid #f3f3f3;
+    border: 8px solid rgb(19, 18, 18);
     border-top: 8px solid #3cdb34;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     animation: spin 2s linear infinite;
+    margin: 0.5vw;
 }
 
 @keyframes spin {

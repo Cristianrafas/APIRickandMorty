@@ -3,6 +3,7 @@ const pagDiv = document.getElementById('pagination-div');
 const charCount = document.getElementById('char-count');
 const localCount = document.getElementById('local-count');
 const epCount = document.getElementById('ep-count');
+const loadingDiv = document.querySelector('.loading-div')
 const urlCharacters = 'https://rickandmortyapi.com/api/character';
 const urlLocations = 'https://rickandmortyapi.com/api/location';
 const urlEpisodes = 'https://rickandmortyapi.com/api/episode';
@@ -55,21 +56,39 @@ async function makeGroups(array) {
     return groups;
 }
 
+function loading() {
+    // loadingDiv.innerHTML = "";
+    for (let i = 1; i <= 6; i++) {
+        const loader = document.createElement(`div`);
+        loader.classList.add('col-11', 'col-md-5', 'card-div', 'mb-3', 'z-0');
+        loader.id = `loadingDiv-${i}`;
+        loader.innerHTML = `
+        <div class="row pt-1 pt-md-0 row1">
+            <div class="col-4 p-0">
+                <div class="loading-indicator"></div>
+            </div>
+            <div class="col-8 p-0 pb-2 ps-3 ps-md-2"></div>
+        </div>
+        `;
+
+        loadingDiv.appendChild(loader);
+    }
+}
+
 async function makePage(page, pagNum) {
+    cardRow.innerHTML="";
+    pagDiv.innerHTML="";
 
-    cardRow.innerHTML = "";
-    pagDiv.innerHTML = "";
-
+    loading()
     window.scrollTo({
         top: 0,
         behavior: 'smooth',
-    }),
-    
-    cardRow.classList.add('loading-indicator');
+    });
+
     try {
         for (let i = 0; i < groups[page].length; i++) {
             const characterCard = document.createElement('div');
-            characterCard.classList.add('col-11', 'col-md-5', 'card-div', 'mb-3');
+            characterCard.classList.add('col-11', 'col-md-5', 'card-div', 'mb-3', 'z-2');
             let lastEp = (groups[page][i].episode.length) - 1;
             characterCard.innerHTML = `
             <div class="row row1">
@@ -86,12 +105,17 @@ async function makePage(page, pagNum) {
                     </div>
                     </div>
                     `;
-                    cardRow.classList.remove('loading-indicator');
-                    cardRow.appendChild(characterCard)
-                }
+            cardRow.appendChild(characterCard)
+        }
+        for (let i = 1; i <= 6; i++) {
+            let loaderToRemove = document.getElementById(`loadingDiv-${i}`);
+            if (loaderToRemove) {
+                loadingDiv.removeChild(loaderToRemove);
+            }
+        }
         const paginationDiv = document.createElement('div');
         paginationDiv.classList.add('pagination');
-        
+
         if (groups.length > 1) {
             let prevButtonDisabled = currentPage === 1 ? 'hidden' : '';
             let prevButtonDisabledTen = currentPage < 11 ? 'hidden' : '';
@@ -116,17 +140,11 @@ async function makePage(page, pagNum) {
     catch (error) {
         console.error("Erro ao carregar página:", error);
         // Lidar com o erro, se necessário
-    } 
+    }
 
-    
+
 }
 
-function showLoadingIndicator() {
-    const loadingIndicator = document.createElement('div');
-    loadingIndicator.classList.add('loading-indicator');
-    console.log('carregando!')
-    cardRow.appendChild(loadingIndicator);
-}
 
 async function takeLastEp(url) {
     try {
