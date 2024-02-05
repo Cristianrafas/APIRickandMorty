@@ -74,8 +74,6 @@ body {
     }
 }
 
-
-
 .card-image {
     margin-top: 0.5vh;
     max-width: 30vw;
@@ -117,18 +115,32 @@ body {
         height: 30vh;
         background: none;
     }
-
+    
     .footer-text {
         background: none;
         color: rgba(90, 99, 90, 0.705);
     }
-
+    
     .status {
         width: 15px;
         height: 15px;
         border-radius: 100%;
         border: 2px solid rgb(74, 72, 72);
         font-size: 12px;
+    }
+
+    .card-image-modal {
+        object-fit: contain;
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    .card-title-modal {
+        font-size: 3vw;
+    }
+
+    .card-description-modal {
+        font-size: 1.3vw;
     }
 }
 
@@ -150,14 +162,14 @@ body {
         max-height: 3vh;
         overflow: hidden;
     }
-
+    
     #content-container {
         height: 110vh;
         width: 90vw;
         color: white;
         background-color: rgb(19, 18, 18);
     }
-
+    
     #footer-image {
         width: 50%;
         height: 30vh;
@@ -173,7 +185,7 @@ body {
         font-size: 2vh;
         color: rgba(193, 207, 193, 0.705);
     }
-
+    
     .status {
         width: 14px;
         height: 14px;
@@ -181,9 +193,33 @@ body {
         border: 1px solid rgb(74, 72, 72);
         font-size: 12px;
     }
+
+    .card-image-modal {
+        object-fit: contain;
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    .image-modal-col {
+        position: flex;
+        justify-content: flex-end;
+    }
+
+    .card-title-modal {
+        font-size: 7vw;
+        text-align: center;
+        max-height: 4vh;
+        overflow: hidden;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+
+    .card-description-modal {
+        text-align: center;
+        font-size: 4.2vw;
+        overflow: hidden;
+    }
 }
-
-
 
 .dead {
     background-color: red;
@@ -233,4 +269,42 @@ body {
     background: none;
     font-weight: 600;
     color: white
+}
+
+.modal {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: grey;
+    padding: 20px;
+    border: 8px solid rgb(104, 241, 25);    
+    border-radius: 15px;
+    width: 62vw; 
+    height: 62vh;
+    overflow: auto;
+    color:white
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+.row-modal {
+    min-height: 60vh;
 }
