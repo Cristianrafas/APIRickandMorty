@@ -161,7 +161,7 @@ async function openModal(char) {
                 <div class="col-12 col-md-4 p-0 image-modal-col">
                 <img class="card-image-modal img-fluid ps-mb-4 pb-mb-4" src="${char.image}">
                 </div>
-                <div class="col-12 col-md-8 ps-md-5 text-col-modal">
+                <div class="col-12 col-md-8 ps-md-5 pt-5 text-col-modal">
                 <div class="card-title-modal">${char.name}</div>
                 <p class="card-description-modal ps-2"><span class="${char.status === 'Dead' ? 'dead status' : char.status === 'Alive' ? 'alive status' : 'unknown status'}">O</span> ${char.status} - ${char.species}</p>
                 <p class="card-description-modal ps-2">Última localização conhecida</p>

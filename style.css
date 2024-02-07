@@ -201,8 +201,14 @@ body {
     }
 
     .image-modal-col {
-        position: flex;
-        justify-content: flex-end;
+        position: absolute;
+        top: 5vh;
+        left: 0vw;
+    }
+    .text-col-modal {
+        position: absolute;
+        top: 27vh;
+        left: 0vw;
     }
 
     .card-title-modal {
