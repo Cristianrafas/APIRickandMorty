@@ -110,11 +110,60 @@ body {
         overflow: hidden;
     }
 
-    #footer-image {
-        width: 30%;
-        height: 30vh;
-        background: none;
+    .footer-images-container {
+        position: relative;
+        width: 100%;
+        height: 50vh;
+        overflow: hidden;
     }
+
+    .footer-image {
+        position: absolute;
+        top: 0;
+        left: 49%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 100%;
+    }
+
+    #footer-image-1 {
+        width: 15%;
+        height: 40%;
+        z-index: 2;
+        position: absolute;
+        top: 0%;
+        left: 42%;
+        transform: translateX(-50%);
+        animation: growAnimation 5s linear infinite;
+    }
+
+    #footer-image-2 {
+        width: 0%;
+        height: 115%;
+        z-index: 2;
+        animation: reveal-section 5s ease-in-out forwards 3s,
+        rotate-char-2 10s ease-in-out forwards infinite 8s;
+    }
+
+    #footer-image-3 {
+        width: 0%;
+        height: 115%;
+        z-index: 2;
+        animation: reveal-section 5s ease-in-out forwards 3s,
+        rotate-char-1 10s ease-in-out forwards infinite 8s;
+    }
+
+    #footer-image-4 {
+        width: 30%;
+        height: 140%;
+        z-index: 1;
+        position: absolute;
+        bottom: 30%;
+        left: 35%;
+        transform: translateX(-50%);
+        animation: rotate 2s linear infinite;
+    }
+
     
     .footer-text {
         background: none;
@@ -128,17 +177,17 @@ body {
         border: 2px solid rgb(74, 72, 72);
         font-size: 12px;
     }
-
+    
     .card-image-modal {
         object-fit: contain;
         min-width: 100%;
         min-height: 100%;
     }
-
+    
     .card-title-modal {
         font-size: 3vw;
     }
-
+    
     .card-description-modal {
         font-size: 1.3vw;
     }
@@ -162,7 +211,7 @@ body {
         max-height: 3vh;
         overflow: hidden;
     }
-    
+
     #content-container {
         height: 110vh;
         width: 90vw;
@@ -170,16 +219,65 @@ body {
         background-color: rgb(19, 18, 18);
     }
     
-    #footer-image {
-        width: 50%;
-        height: 30vh;
-        background: none;
+    .footer-images-container {
+        position: relative;
+        width: 100%;
+        height: 50vh;
+        overflow: hidden;
     }
 
+    .footer-image {
+        position: absolute;
+        top: 0;
+        left: 49%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 100%;
+    }
+
+    #footer-image-1 {
+        width: 50%;
+        height: 40%;
+        z-index: 2;
+        position: absolute;
+        top: 0%;
+        left: 28%;
+        transform: translateX(-50%);
+        animation: growAnimation 5s linear infinite;
+    }
+
+    #footer-image-2 {
+        width: 0%;
+        height: 115%;
+        z-index: 2;
+        animation: reveal-section 5s ease-in-out forwards 3s,
+        rotate-char-2 10s ease-in-out forwards infinite 8s;
+    }
+
+    #footer-image-3 {
+        width: 0%;
+        height: 115%;
+        z-index: 2;
+        animation: reveal-section 5s ease-in-out forwards 3s,
+        rotate-char-1 10s ease-in-out forwards infinite 8s;
+    }
+
+    #footer-image-4 {
+        width: 100%;
+        height: 120%;
+        z-index: 1;
+        position: absolute;
+        bottom: 30%;
+        left: 0%;
+        transform: translateX(-50%);
+        animation: rotate 2s linear infinite;
+    }
+
+    
     .font-footer {
         font-size: 1.5vh;
     }
-
+    
     .footer-text {
         background: none;
         font-size: 2vh;
@@ -205,6 +303,7 @@ body {
         top: 5vh;
         left: 0vw;
     }
+    
     .text-col-modal {
         position: absolute;
         top: 27vh;
@@ -219,7 +318,7 @@ body {
         margin-top: 1vh;
         margin-bottom: 1vh;
     }
-
+    
     .card-description-modal {
         text-align: center;
         font-size: 4.2vw;
@@ -227,6 +326,72 @@ body {
     }
 }
 
+@keyframes growAnimation {
+    0% {
+    transform: scale(1);
+    }
+    50% {
+    transform: scale(1.1);
+    }
+    100% {
+    transform: scale(1);
+    }
+}
+
+@keyframes reveal-section {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 50%;
+    }
+}
+
+@keyframes rotate-char-1 {
+    0% {
+        rotate: 0deg;
+    }
+
+    33% {
+        rotate: 2deg;
+    }
+
+    66% {
+        rotate: -2deg;
+    }
+
+    100% {
+        rotate: 0deg;
+    }
+}
+@keyframes rotate-char-2 {
+    0% {
+        rotate: 0deg;
+    }
+
+    33% {
+        rotate: -2deg;
+    }
+
+    66% {
+        rotate: 2deg;
+    }
+
+    100% {
+        rotate: 0deg;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
 .dead {
     background-color: red;
     color: red;
@@ -287,16 +452,16 @@ body {
 .modal-content {
     position: absolute;
     top: 50%;
-    left: 50%; 
-    transform: translate(-50%, -50%); 
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: grey;
     padding: 20px;
-    border: 8px solid rgb(104, 241, 25);    
+    border: 8px solid rgb(104, 241, 25);
     border-radius: 15px;
-    width: 62vw; 
+    width: 62vw;
     height: 62vh;
     overflow: auto;
-    color:white
+    color: white
 }
 
 .close {
