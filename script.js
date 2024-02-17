@@ -84,7 +84,6 @@ async function makePage(page, pagNum) {
     cardRow.innerHTML = "";
     pagDiv.innerHTML = "";
 
-    loading()
     window.scrollTo({
         top: 0,
         behavior: 'smooth',
@@ -269,6 +268,7 @@ async function search(word) {
 }
 
 async function execute() {
+    loading()
     pages = await takePages(urlCharacters);
     allLocations = await takeAllLocations(urlLocations);
     await takeAllPages(pages, urlCharacters);

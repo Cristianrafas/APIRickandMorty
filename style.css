@@ -251,7 +251,7 @@ body {
         height: 115%;
         z-index: 2;
         animation: reveal-section 5s ease-in-out forwards 3s,
-        rotate-char-2 10s ease-in-out forwards infinite 8s;
+        rotate-char-2 5s ease-in-out forwards infinite 8s;
     }
 
     #footer-image-3 {
@@ -259,7 +259,7 @@ body {
         height: 115%;
         z-index: 2;
         animation: reveal-section 5s ease-in-out forwards 3s,
-        rotate-char-1 10s ease-in-out forwards infinite 8s;
+        rotate-char-1 5s ease-in-out forwards infinite 8s;
     }
 
     #footer-image-4 {
